@@ -12,14 +12,14 @@
 
 .threeJs {
   pointer-events:none;
-  z-index:-1;
+  z-index:-10;
   position:absolute;
   bottom:0px;
   right:0px;
   width: 100%;  /* Resta el margen de los lados */
   height: 100%; /* Resta el margen superior e inferior */
   border:1px solid red;
-  filter:opacity(0.3);
+  filter:opacity(0.5);
   transition: ease-in-out 1s;
 
   animation-name:appearThree;
