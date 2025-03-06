@@ -19,7 +19,7 @@
   width: 100%;
   height: 100%;
   border:1px solid red;
-  filter:opacity(0.3);
+  filter:opacity(1);
   transition: ease-in-out 1s;
 
   animation-name:appearThree;

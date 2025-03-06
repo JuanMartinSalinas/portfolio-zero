@@ -1,5 +1,4 @@
 import * as THREE from "three";
-// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { useEffect, useRef } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Main from "./layout/MainPage/MainPage.jsx";
@@ -9,6 +8,19 @@ import styles from "./App.module.css";
 
 import gsap from "gsap";
 
+import discordJs from './assets/techs/discordjs-logo.png'
+import express from './assets/techs/express-logo.png'
+import javascript from './assets/techs/javascript-logo.png'
+import nodeJs from './assets/techs/nodejs-logo.png'
+import postgresql from './assets/techs/postgresql-logo.png'
+import react from './assets/techs/react-logo.png'
+import redux from './assets/techs/redux-logo.png'
+import sequelize from './assets/techs/sequelize-logo.png'
+import tailwind from './assets/techs/tailwind-logo.png'
+import threeJs from './assets/techs/threejs-logo.png'
+import vite from './assets/techs/vite-logo.png'
+import zustand from './assets/techs/zustand-logo.png'
+
 
 const App = () => {
   const mountRef = useRef(null);
@@ -17,6 +29,7 @@ const App = () => {
   const rendererRef = useRef(null);
   const cameraRef = useRef(null);
   const icoRef = useRef(null);
+  const textureRef = useRef(null);
   
   const location = useLocation();
   
@@ -35,9 +48,6 @@ const App = () => {
       const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
       camera.position.z = 20;
       cameraRef.current = camera;
-  
-      // new OrbitControls(camera, renderer.domElement);
-  
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
       scene.add(ambientLight);
       const pointLight = new THREE.PointLight(0xffffff, 1);
@@ -48,8 +58,8 @@ const App = () => {
       const torusMaterial = new THREE.MeshBasicMaterial({ 
         color: "#1f262c", 
         wireframe: true, 
-        transparent: true, 
-        opacity: 1, 
+        transparent:true,
+        opacity:0.05,
         depthWrite: false 
       });
       const torus = new THREE.Mesh(torusGeometry, torusMaterial);
@@ -57,43 +67,63 @@ const App = () => {
       scene.add(torus);
       torusRef.current = torus;
   
+      const icosahedronGroup = new THREE.Group();
+      scene.add(icosahedronGroup);
+
+      const textureLoader = new THREE.TextureLoader()
+      const textures = [
+        textureLoader.load(discordJs), textureLoader.load(express), textureLoader.load(javascript), textureLoader.load(nodeJs),
+        textureLoader.load(postgresql), textureLoader.load(nodeJs), textureLoader.load(react), textureLoader.load(redux),
+        textureLoader.load(sequelize), textureLoader.load(tailwind), textureLoader.load(threeJs), textureLoader.load(vite),
+        textureLoader.load(zustand)
+      ]
+
       const icosahedronGeometry = new THREE.IcosahedronGeometry(1,0) // Creación del icosaedro / icosahedron creation
+      const positions = icosahedronGeometry.attributes.position.array;
+      const vertexSet = new Set();
       const icosahedronMaterial = new THREE.MeshBasicMaterial({
         color: "#1f262c",
         wireframe:true,
-        opacity:1,
-        depthWrite:false
+        transparent:true,
+        opacity:0.05,
+        depthWrite:false,
       });
       const icosahedron = new THREE.Mesh(icosahedronGeometry,icosahedronMaterial);
-      scene.add(icosahedron);
-      icoRef.current = icosahedron;
+      icosahedronGroup.add(icosahedron);
+      icoRef.current = icosahedronGroup;
       
+      for (let i = 0; i < positions.length; i += 3) {
+        const key = `${positions[i]},${positions[i + 1]},${positions[i + 2]}`;
+        vertexSet.add(key);
+      }
+
+      const vertices = [...vertexSet].map((key) => {
+        const [x, y, z] = key.split(",").map(Number);
+        return new THREE.Vector3(x, y, z);
+      });
+
+
+        vertices.forEach((vertex, index) => {
+        const spriteMaterial = new THREE.SpriteMaterial({ map: textures[index % textures.length], transparent:true, opacity:1});
+        const sprite = new THREE.Sprite(spriteMaterial);
+        sprite.position.copy(vertex);
+        sprite.scale.set(0.3, 0.3, 0.3); // Ajustar tamaño
+        icosahedronGroup.add(sprite); 
+      });
+
+      textureRef.current = vertices;
+
 
       function animate() {
         requestAnimationFrame(animate);
         torus.rotation.z += 0.002;
-        icosahedron.rotation.z += 0.002;
-        icosahedron.rotation.y += 0.002;
-        icosahedron.rotation.z += 0.002;
+        icosahedronGroup.rotation.x += 0.002;
+        icosahedronGroup.rotation.y += 0.002;
+        icosahedronGroup.rotation.z += 0.002;
         renderer.render(scene, camera);
       }
       animate();
       
-
-      
-      // Resize renderer
-
-      // const handleResize = () => {
-      //   renderer.setSize(window.innerWidth, window.innerHeight);
-      //   camera.aspect = window.innerWidth / window.innerHeight;
-      //   camera.updateProjectionMatrix();
-      // };
-      // window.addEventListener("resize", handleResize);
-  
-      // return () => {
-      //   mountRef.current.removeChild(renderer.domElement);
-      //   window.removeEventListener("resize", handleResize);
-      // };
     }
   , []);
   
@@ -139,7 +169,7 @@ const App = () => {
     }
   }, [location.pathname])
   
-  
+
 
   return (
     <>
