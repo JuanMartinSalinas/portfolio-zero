@@ -1,0 +1,99 @@
+.aboutBox {
+    /* background-color: rgb(255, 116, 116); */
+    margin:auto;
+    width:90%;
+    position:relative;
+    transform: translate(0, 35%);
+    display:flex;
+    animation-name:appearAbout;
+    animation-duration:2s;
+    animation-iteration-count:1;
+    animation-direction:normal;
+}
+
+@keyframes appearAbout {
+    from {filter: opacity(0);}
+    to {filter: opacity(1);}
+}
+
+.arrowBox {
+    max-height:50px;
+    padding-right:1em;
+    z-index: 100;
+    filter:opacity(50%);
+    transition: ease-in-out 0.2s;
+    position:absolute;
+    top:510px;
+    left:-20px;
+    transform:rotate(90deg) scale(50%);
+}
+
+.technologiesBox {
+    /* background-color: white; */
+    width:45%;
+}
+
+.infoBox {
+    /* background-color: rgb(171, 171, 255); */
+    width:55%;
+}
+
+.title {
+    font-family:'Jura', serif;
+    font-size:40px;
+    position:relative;
+    transform:translate(-0.4%)
+}
+
+.paragraphAndLogos {
+    border-left:0.25em solid rgba(0, 0, 0, 0.452);
+    padding-left:1em;
+    padding-top:1.2em;
+    margin-top:0.7em;
+    font-family:'Jura', serif;
+    font-weight: lighter;
+    font-size:20px;
+}
+
+.paragraph {
+    padding-bottom:0.5em;
+}
+
+.links {
+    margin-top:1.5em;
+    display:flex;
+}
+
+.image {
+    max-height:50px;
+    padding-right:1em;
+    z-index: 100;
+    filter:opacity(50%);
+    transition: ease-in-out 0.2s;
+}
+
+.image:hover {
+    filter:opacity(100%);
+    transition: ease-in-out 0.2s;
+    transform:scale(110%);
+}
+
+.button {
+    font-family: 'Jura', serif;
+    font-size:30px;
+    background-color: transparent;
+    border:0px;
+    transition:ease-in-out 0.2s;
+    position:relative;
+}
+.button:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    transform:scale(105%);
+    transition:ease-in-out 0.2s;
+    cursor:pointer;
+}
+.button:focus {
+    transform:scale(95%);
+    transition:ease-in 0.1s;
+}

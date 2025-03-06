@@ -1,8 +1,8 @@
 // import {useEffect, useMemo, useRef, useState} from 'react';
 import styles from './App.module.css';
-// import Main from './layout/Main/Main.jsx';
-// import About from './layout/About/About.jsx';
-// import Projects from './layout/Projects/Projects.jsx';
+import MainPage from './layout/MainPage/MainPage.jsx';
+import About from './layout/About/About.jsx';
+import Projects from './layout/Projects/Projects.jsx';
 import {Route, Routes, useLocation} from 'react-router-dom';
 // import { Canvas, useFrame } from '@react-three/fiber';
 // import * as THREE from "three";
@@ -127,11 +127,11 @@ function App() {
         <div className={styles.thinBorderBox}/>
         <div className={styles.borderBox}/>
         <div className={styles.box}>
-          {/* <Routes>
-            <Route path="/" element={<Main />}/>
+          <Routes>
+            <Route path="/" element={<MainPage />}/>
             <Route path="/about" element={<About />}/>
             <Route path="/projects" element={<Projects />}/>
-          </Routes> */}
+          </Routes>
         </div>
         <div className={styles.blobOuterContainer}>
             <div className={styles.blobInnerContainer}>

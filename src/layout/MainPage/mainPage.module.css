@@ -1,0 +1,83 @@
+p {
+    font-weight: lighter;
+}
+
+.mainBox {
+    animation-name:appearMain;
+    animation-duration:2s;
+    animation-iteration-count:1;
+    animation-direction:normal;
+}
+
+@keyframes appearMain {
+    from {filter: opacity(0);}
+    to {filter: opacity(1);}
+}
+
+.contentBox {
+    margin:auto;
+    width:90%;
+    position:relative;
+    transform: translate(5%, 35%);
+}
+    .header {
+        position:relative;
+        transform:translate(-0.7%);
+        font-family: 'Jura', serif;
+        font-size: 110px;
+    }
+    .subtitle {
+        font-weight:300;
+        font-size: 40px;
+        padding:0;
+    }
+    .subtitle::after {
+        animation-name:cambiando;
+        animation-duration:15s;
+        animation-timing-function:ease-in-out;
+        animation-iteration-count:infinite;
+        content: ""
+    }
+
+        @keyframes cambiando {
+            0% {
+                content: "a Full-Stack Web developer"
+            }
+            25% {
+                content: "specialized in Frontend"
+            }
+            50% {
+                content: "a graphic designer"
+            }
+            75% {
+                content: "a writer"
+            }
+            100% {
+                content: "a ttrpg enjoyer"
+            }
+        }
+
+    .buttonBox {
+        display:inline-block;   
+        position:relative;
+        transform: translate(-12%, 40%);
+    }
+        .button {
+            font-family: 'Jura', serif;
+            font-size:35px;
+            margin:1.5em 0em 1.5em 1.5em;
+            background-color: transparent;
+            border:0px;
+            transition:ease-in-out 0.2s;
+        }
+        .button:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            transform:scale(105%);
+            transition:ease-in-out 0.2s;
+            cursor:pointer;
+        }
+        .button:focus {
+            transform:scale(95%);
+            transition:ease-in 0.1s;
+        }
