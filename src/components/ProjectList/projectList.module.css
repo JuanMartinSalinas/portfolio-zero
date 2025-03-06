@@ -1,0 +1,198 @@
+@keyframes appear {
+    from {filter:opacity(0)};
+    to {filter:opacity(1)};
+}
+
+
+.projectBox {
+    display:flex;
+    animation-name:appear;
+    animation-duration:2s;
+    animation-iteration-count:1;
+    animation-direction:normal;
+}
+
+.arrowBox {
+    max-height:50px;
+    padding-right:1em;
+    z-index: 100;
+    filter:opacity(50%);
+    transition: ease-in-out 0.2s;
+    position:absolute;
+    top:680px;
+    left:45px;
+    transform:rotate(90deg) scale(50%);
+}
+
+.projectList {
+    margin:auto;
+    width:40%;
+    height:70vh;
+    position:relative;
+    transform: translate(3%, 2%);
+    display:inline-block;
+    overflow-y:scroll;
+}
+    .buttonProject {
+        display:block;
+        width:95%;
+        text-align:left;
+        font-family: 'Jura', serif;
+        font-size:30px;
+        background-color: transparent;
+        border: 0px;
+        padding:1em;
+        border-top:1.5px solid rgb(60, 132, 199);
+        cursor:pointer;
+    }
+    .buttonProject:hover {
+        background-color: rgba(132, 193, 204, 0.253);
+    }
+    .buttonFocus {
+        display:block;
+        background-color: rgba(240, 248, 255, 0.486);
+        width:100%;
+        text-align:left;
+        font-family: 'Jura', serif;
+        font-size:30px;
+        background-color: transparent;
+        border: 0px;
+        padding:1em;
+        border-top:1.5px solid rgb(60, 132, 199);
+    }
+
+.buttonDisabled {
+    display:block;
+    width:95%;
+    text-align:left;
+    font-family: 'Jura', serif;
+    font-size:30px;
+    background-color: transparent;
+    border: 0px;
+    padding:1em;
+    border-top:1.5px solid rgb(60, 132, 199);
+}
+
+
+.projectDisplay {
+    transform: translate(-4%, 9%);
+    width:50%;
+    height:85vh;
+}
+
+.nameAndTechs {
+    display: flex;
+    align-items: center;
+}
+
+    .projectTitle {
+        font-family: 'Jura', serif;
+        font-size:45px;
+        transition:ease-in 0.5s;
+    }
+    .techBox {
+        margin-top:0.5em;
+        margin-left:1em;
+        padding-left:1em;
+        height:80%;
+        border-left:1px solid black;
+    }
+        .allTechnologies {
+            display:inline;
+            border-radius:5px;
+            padding:0.2em;
+            margin-right:0.2em;
+            font-size: 14px;
+            font-weight:300;
+            text-align:center;
+            font-style: italic;
+        }
+
+.projectDescription {
+    transition:ease-in 0.5s;
+}
+
+.projectImage {
+    height:62%;
+    filter:opacity(1);
+    border-radius:1%;
+    box-shadow:0.5px 0.5px 30px rgb(58, 58, 58);
+    object-fit:cover;
+    padding:0;
+    border:0px;
+    transition:0s;
+}
+
+.projectImageInvisible {
+    visibility:hidden;
+}
+
+.projectImage:hover {
+    transform: scale(100%);
+}
+
+.projectDescription { 
+    font-family: 'Jura', serif;
+    font-size:22px;
+}
+
+::-webkit-scrollbar {
+    width:0.5em;
+}
+
+::-webkit-scrollbar-track {
+    background:#0071bc8e;
+    border-radius:100vh;
+}
+
+::-webkit-scrollbar-thumb {
+    background:#2e319285;
+    border-radius:100vh;
+    
+}
+
+.hiperLinks {
+    z-index:10;
+    position:absolute;
+    width:98.6%;
+    height:62%;
+    filter:opacity(0);
+    transition:ease-in 0.1s;
+}
+.hiperLinks:hover {
+    z-index:10;
+    position:absolute;
+    filter:opacity(1);
+    transition:ease-in 0.1s;
+}
+    .githubLink {
+        height:50px;
+        margin-right:10px;
+        position:absolute;
+        top:350px;
+        left:610px;
+        transition:ease-in 0.2s;
+    }
+    .githubLink:hover {
+        transform:scale(110%);
+        transition:ease-out 0.2s;
+    }
+    .pageLinkOn {
+        height:50px;
+        position:absolute;
+        top:350px;
+        left:670px;
+        transition:ease-out 0.2s;
+    }
+    .pageLinkOn:hover {
+        transform:scale(110%);
+        transition:ease-out 0.2s;
+    }
+    .pageLinkOff {
+        height:50px;
+        filter:brightness(0.3);
+        transform:scale(95%);
+        position:absolute;
+        top:350px;
+        left:670px;
+    }
