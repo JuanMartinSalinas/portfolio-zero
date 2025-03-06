@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import styles from './projectlist.module.css'; 
+import styles from './projectList.module.css'; 
 import allProjects from '../../projects.js';
 import arrow from '../../assets/arrow.png'
 import { Link } from 'react-router-dom';
