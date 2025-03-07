@@ -153,7 +153,7 @@ const App = () => {
       const positions = {
         "/":[0,-5,-4],
         "/about":[-2,0,17],
-        "/projects":[10,-5,10],
+        "/projects":[7,2,12],
       };
 
       const targetPosition = positions[location.pathname] || [0, 0, 0];
