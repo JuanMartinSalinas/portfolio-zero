@@ -196,3 +196,65 @@
         top:350px;
         left:670px;
     }
+
+
+
+
+@media only screen and (max-width:768px) {
+    
+.projectBox {
+    display:block;
+    animation-name:appear;
+    animation-duration:2s;
+    animation-iteration-count:1;
+    animation-direction:normal;
+}
+    .projectDisplay {
+        font-size: 20px;
+        padding-left:3em;
+        padding-top:1.2em;
+        margin:0px;
+        height:30vh;
+        width:100%;
+    }
+        .projectTitle {
+            font-size:20px;
+            border-right: 1px solid black;
+            padding-right:0.2em;
+            margin-right:0.2em;
+        }
+        .projectDescription {
+            font-size:14px;
+        }
+        .titleAndTechs {
+            display:flex;
+        }
+        .allTechnologies {
+            font-size:8px;
+            padding-top:1.2em;
+        }
+
+    .arrowBox {
+        max-height:40px;
+        padding-right:1em;
+        z-index: 100;
+        filter:opacity(50%);
+        transition: ease-in-out 0.2s;
+        position:absolute;
+        top:620px;
+        left:320px;
+        transform:rotate(90deg) scale(50%);
+    }
+
+    .githubLink1 {
+        height:40px;
+        filter:opacity(0.6);
+        padding-top:0.4em;
+    }
+    .pageLink {
+        height:40px;
+        filter:opacity(0.6);
+        padding-top:0.4em;
+        padding-left:0.4em;
+    }
+}

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import styles from './projectList.module.css'; 
 import allProjects from '../../projects.js';
 import arrow from '../../assets/arrow.png'
@@ -20,9 +20,19 @@ export default function ProjectList() {
         useProject(e)
     }
 
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+      const handleResize = () => setWidth(window.innerWidth);
+  
+      window.addEventListener("resize", handleResize);
+      
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return(
         <>
-            <div className={styles.projectBox}>
+            {width > 767 ? <div className={styles.projectBox}>
                 <div className={styles.projectList}>
                     {
                         allProjects.map((e) => {
@@ -64,7 +74,30 @@ export default function ProjectList() {
                     </div>
                     <p className={styles.projectDescription}>{project.description}</p>
                 </div>
+            </div> :
+            <div className={styles.projectBox}>
+                {
+                    allProjects.map((e) => {
+                        return(
+                            <div className={styles.projectDisplay}>
+                                <div className={styles.titleAndTechs}>
+                                    <h1 className={styles.projectTitle}>{e.name === "Coming soon!" ? "" : e.name}</h1>
+                                    { e.technologies === undefined ? null : e.technologies.map((e) =>
+                                        <p className={styles.allTechnologies} key={e.id}>{e + " "}</p>)
+                                    }
+                                </div>
+                                <p className={styles.projectDescription}>{e.description}</p>
+                                <a href={e.githubLink} target="_blank"><img className={styles.githubLink1} src={githubLogo}/></a>
+                                <a href={e.pageLink === "" ? null : e.pageLink} target="_blank"><img src={linkLogo} className={styles.pageLink}/></a>
+                            </div>
+                        );
+                    })
+                }
+                <div>
+                    <Link to="/"><img src={arrow} className={styles.arrowBox} alt="arrow"/></Link>
+                </div>
             </div>
+                        }
         </>
     )
 }

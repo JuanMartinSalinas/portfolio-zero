@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Main from "./layout/MainPage/MainPage.jsx";
 import About from "./layout/About/About.jsx";
@@ -32,7 +32,8 @@ const App = () => {
   const textureRef = useRef(null);
   
   const location = useLocation();
-  
+
+
   useEffect(() => {
     // Si ya existe la escena, no la volvemos a crear / If scene exists, we don't create it again (unnecesary, works nonetheless)
     
@@ -148,16 +149,41 @@ const App = () => {
   }, [location.pathname]);
   
 
-  useEffect(() => {
-    if(icoRef.current) {
-      const positions = {
-        "/":[0,-5,-4],
-        "/about":[-2,0,17],
-        "/projects":[7,2,12],
-      };
 
+  const [positions, setPositions] = useState({
+    "/": [0, -5, -4],
+    "/about": [0.5, -2, 17],
+    "/projects": [7, 2, 12],
+  });
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setPositions((prev) => ({
+          ...prev,
+          "/about": [0.5, -2, 17],
+        }));
+      } else {
+        setPositions((prev) => ({
+          ...prev,
+          "/about": [-2, 0, 17],
+        }));
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+
+
+  useEffect(() => {
+    if (icoRef.current) {
       const targetPosition = positions[location.pathname] || [0, 0, 0];
-  
+
       gsap.to(icoRef.current.position, {
         x: targetPosition[0],
         y: targetPosition[1],
@@ -165,9 +191,8 @@ const App = () => {
         duration: 1.2,
         ease: "power2.out",
       });
-
     }
-  }, [location.pathname])
+  }, [location.pathname, positions]);
   
 
 

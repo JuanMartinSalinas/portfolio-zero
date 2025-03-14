@@ -81,3 +81,65 @@ p {
             transform:scale(95%);
             transition:ease-in 0.1s;
         }
+
+
+@media only screen and (max-width:425px) {
+    .mainBox {
+        animation-name:appearMain;
+        animation-duration:2s;
+        animation-iteration-count:1;
+        animation-direction:normal;
+        /* overflow:hidden; */
+    }
+    .contentBox {
+        margin:auto;
+        width:90%;
+        position:relative;
+        height:100%;
+    }
+        .header {
+            position:relative;
+            transform:translate(-0.7%);
+            font-family: 'Jura', serif;
+            font-size: 40px;
+            margin-left:0.3em;
+        }
+        .subtitle {
+            font-weight:300;
+            font-size: 20px;
+            padding:0;
+            margin-left:0.5em;
+        }
+        .subtitle::after {
+            animation-name:cambiando;
+            animation-duration:15s;
+            animation-timing-function:ease-in-out;
+            animation-iteration-count:infinite;
+            content: ""
+        }
+        .buttonBox {
+            display:inline-block;
+            position:relative;
+            transform: translate(-12%, 100%);
+        }
+            .button {
+                font-family: 'Jura', serif;
+                font-size:22px;
+                margin:0em 0em 1em 1.5em;
+                background-color: transparent;
+                padding:0.4em;
+                border-radius: 15px;
+                transition:ease-in-out 0.2s;
+            }
+            .button:hover {
+                text-decoration: underline;
+                text-decoration-thickness: 1px;
+                transform:scale(105%);
+                transition:ease-in-out 0.2s;
+                cursor:pointer;
+            }
+            .button:focus {
+                transform:scale(95%);
+                transition:ease-in 0.1s;
+            }
+}

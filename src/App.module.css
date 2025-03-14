@@ -1,14 +1,8 @@
 .mainBox {
-  /* background-color: rgb(245, 237, 191); */
   z-index:0;
   width: calc(100% - 3em);  /* Resta el margen de los lados */
   height: calc(100vh - 3em); /* Resta el margen superior e inferior */
 }
-
-/* @keyframes appearThree {
-  from {filter: opacity(0)};
-  to {filter: opacity(1)};
-} */
 
 .threeJs {
   pointer-events:none;
@@ -27,29 +21,6 @@
   animation-iteration-count:1;
   animation-direction:normal;
 }
-
-/* .threeJs2 {
-  pointer-events:none;
-  z-index:-1;
-  position:absolute;
-  bottom:0px;
-  right:0px;
-  width: 100%;
-  height: 100%;
-  border:1px solid red;
-  filter:opacity(1);
-  transition: ease-in-out 1s;
-  
-  animation-name:appearThree;
-  animation-duration:2s;
-  animation-iteration-count:1;
-  animation-direction:normal;
-}
-
-@keyframes appearThree {
-  from {filter: opacity(0)};
-  to {filter: opacity(1)};
-} */
 
 .thinBorderBox {
   z-index:10;

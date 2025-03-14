@@ -9,6 +9,7 @@
     animation-duration:2s;
     animation-iteration-count:1;
     animation-direction:normal;
+    /* transform:translate(110%) */
 }
 
 @keyframes appearAbout {
@@ -109,35 +110,109 @@
     }
 }
 
-/* .adoGiraGira {
-    position: absolute;
-    border: 1px solid white;
-    width: 50px;
-    height: 50px;
-    top: 200px;
-    left: 200px;
-  }
-  
-  .technologiesLogos {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    top: 50%;
-    left: 50%;
-    transform-origin: center;
-    animation: giraGira 15s linear infinite;
-  }
-  
-  .technologiesLogos:nth-child(1) { transform: rotate(0deg) translateX(200px) rotate(0deg); }
-  .technologiesLogos:nth-child(2) { transform: rotate(30deg) translateX(200px) rotate(-30deg); }
-  .technologiesLogos:nth-child(3) { transform: rotate(60deg) translateX(200px) rotate(-60deg); }
-  .technologiesLogos:nth-child(4) { transform: rotate(90deg) translateX(200px) rotate(-90deg); }
-  .technologiesLogos:nth-child(5) { transform: rotate(120deg) translateX(200px) rotate(-120deg); }
-  .technologiesLogos:nth-child(6) { transform: rotate(150deg) translateX(200px) rotate(-150deg); }
-  .technologiesLogos:nth-child(7) { transform: rotate(180deg) translateX(200px) rotate(-180deg); }
-  .technologiesLogos:nth-child(8) { transform: rotate(210deg) translateX(200px) rotate(-210deg); }
-  .technologiesLogos:nth-child(9) { transform: rotate(240deg) translateX(200px) rotate(-240deg); }
-  .technologiesLogos:nth-child(10) { transform: rotate(270deg) translateX(200px) rotate(-270deg); }
-  .technologiesLogos:nth-child(11) { transform: rotate(300deg) translateX(200px) rotate(-300deg); }
-  .technologiesLogos:nth-child(12) { transform: rotate(330deg) translateX(200px) rotate(-330deg); }
-   */
+@media only screen and (max-width:425px) {
+
+    .infoBox {
+        /* background-color: rgb(171, 171, 255); */
+        width:100%;
+        position:absolute;
+        top:50px;
+        left:25px;
+        color:white;
+    }
+        .title {
+            font-family:'Jura', serif;
+            font-size:30px;
+            position:relative;
+        }
+        .paragraphAndLogos {
+            padding-left:1em;
+            padding-top:1.2em;
+            margin-top:0.7em;
+            font-family:'Jura', serif;
+            font-weight: lighter;
+            font-size:16px;
+            background-color: rgba(65, 65, 65, 0.158);
+        }
+        .paragraph {
+            padding-bottom:0.5em;
+        }
+
+    .image {
+        max-height:40px;
+        padding-right:1em;
+        z-index: 100;
+        filter:opacity(50%);
+        transition: ease-in-out 0.2s;
+    }    
+        .image:hover {
+            filter:opacity(100%);
+            transition: ease-in-out 0.2s;
+            transform:scale(110%);
+        }
+
+    .button {
+        font-family: 'Jura', serif;
+        font-size:20px;
+        background-color: transparent;
+        border:0px;
+        transition:ease-in-out 0.2s;
+        position:relative;
+        color:white;
+
+    }
+        .button:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            transform:scale(105%);
+            transition:ease-in-out 0.2s;
+            cursor:pointer;
+        }
+        .button:focus {
+            transform:scale(95%);
+            transition:ease-in 0.1s;
+        }
+
+
+    .arrowBox {
+        max-height:50px;
+        padding-right:1em;
+        z-index: 100;
+        filter:opacity(50%);
+        transition: ease-in-out 0.2s;
+        position:absolute;
+        top:610px;
+        left:-20px;
+        transform:rotate(90deg) scale(50%);
+    }
+        
+}
+
+@media only screen and (max-width:425px) {
+    .title {
+        font-family:'Jura', serif;
+        font-size:24px;
+        position:relative;
+    }
+    .paragraphAndLogos {
+        padding-left:1em;
+        padding-top:1.2em;
+        margin-top:0.7em;
+        font-family:'Jura', serif;
+        font-weight: lighter;
+        font-size:15px;
+    }
+    .paragraph {
+        padding-bottom:0.5em;
+    }
+
+    .button {
+        font-family: 'Jura', serif;
+        font-size:15px;
+        background-color: transparent;
+        border:0px;
+        transition:ease-in-out 0.2s;
+        position:relative;
+    }
+
+}
