@@ -10,6 +10,7 @@ import linkLogo from '../../assets/link.png'
 import bookbuster from '../../assets/bookproject.png';
 import doge from '../../assets/dogeproject.png';
 import coffee from '../../assets/coffeeproject.png';
+import pedro from '../../assets/pedroproject.png'
 import comingsoon from '../../assets/comingsoon.png';
 
 export default function ProjectList() {
@@ -62,7 +63,8 @@ export default function ProjectList() {
                         src={project.img === "bookbuster" ?
                             bookbuster : project.img === "coffee" ?
                             coffee : project.img === "doge" ?
-                            doge : project.img === "comingsoon" ?
+                            doge : project.img === "pedro" ?
+                            pedro : project.img === "comingsoon" ?
                             comingsoon : null}/>
                     <div className={styles.nameAndTechs}>
                         <h1 className={styles.projectTitle}>{project.name}</h1>
