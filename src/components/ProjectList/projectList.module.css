@@ -203,6 +203,7 @@
 @media only screen and (max-width:768px) {
     
 .projectBox {
+    padding-top:3em;
     display:block;
     animation-name:appear;
     animation-duration:2s;
@@ -214,8 +215,9 @@
         padding-left:3em;
         padding-top:1.2em;
         margin:0px;
-        height:30vh;
+        height:30%;
         width:100%;
+        /* border:1px solid red; */
     }
         .projectTitle {
             font-size:20px;
@@ -225,13 +227,16 @@
         }
         .projectDescription {
             font-size:14px;
+            /* border:1px solid blue; */
         }
         .titleAndTechs {
             display:flex;
+            /* border:1px solid green; */
         }
         .allTechnologies {
             font-size:8px;
             padding-top:1.2em;
+            /* border:1px solid yellow; */
         }
 
     .arrowBox {
@@ -242,7 +247,7 @@
         transition: ease-in-out 0.2s;
         position:absolute;
         top:620px;
-        left:320px;
+        left:280px;
         transform:rotate(90deg) scale(50%);
     }
 
@@ -250,11 +255,56 @@
         height:40px;
         filter:opacity(0.6);
         padding-top:0.4em;
+        /* border:1px solid purple; */
     }
     .pageLink {
         height:40px;
         filter:opacity(0.6);
         padding-top:0.4em;
         padding-left:0.4em;
+        /* border:1px solid purple; */
+    }
+}
+
+@media only screen and (max-width:425px) {
+    .projectBox {
+        padding-top:1.5em;
+    }
+    .projectDisplay {
+        font-size: 20px;
+        padding-left:3em;
+        padding-top:1.2em;
+        margin:0px;
+        height:30%;
+        width:100%;
+        margin-bottom:1em;
+        /* border:1px solid red; */
+    }
+}
+
+@media only screen and (max-width:375px) {
+    .projectBox {
+        padding-top:1.2em;
+    }
+    .projectDisplay {
+        margin-bottom:0em;
+        /* border:1px solid red; */
+    }
+}
+
+@media only screen and (max-width:320px) {
+    .projectTitle {
+        font-size:16px;
+        border-right: 1px solid black;
+        padding-right:0.2em;
+        margin-right:0.2em;
+    }
+    .projectDisplay {
+        margin-bottom:0em;
+        /* border:1px solid red; */
+    }
+    .projectDescription {
+        font-size:13px;
+        /* border:1px solid blue; */
     }
 }
